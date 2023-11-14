@@ -9,12 +9,12 @@ AIRSPACE_SIZE = 128000 # 128 km
 CONFLICT_RADIUS = 500 # Meters.
 
 def collide(drone1, drone2, radius):
-    distance = math.sqrt((drone1[0] - drone2[1]) ** 2 + (drone1[0] - drone2[1]) ** 2)
+    distance = math.sqrt((drone1[0] - drone2[0]) ** 2 + (drone1[1] - drone2[1]) ** 2)
 
     if(distance < 2 * radius):
-        return False
+        return True
 
-    return True
+    return False
 
 def count_conflicts(drones, conflict_radius):
     conflicted = 0
